@@ -14,6 +14,7 @@ How Claude Code (and other agents) should work in this repo while keeping contex
 | --- | --- |
 | Plan a feature, check against ADRs | `architect` subagent |
 | Repeatable procedure (new app, use case, adapter, RPC method, page spec, migration, component, ADR) | Matching skill |
+| Commit message, PR title, version impact | `commit-and-version` skill |
 | Draft tests and contract suites | `test-engineer` subagent |
 | Review a diff | `code-reviewer` subagent |
 | Auth, permissions, sandbox, secrets, egress changes | `security-reviewer` subagent |

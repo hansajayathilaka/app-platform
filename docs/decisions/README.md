@@ -19,5 +19,7 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0013 | Studio apps: specs plus sandboxed code, human-approved | Accepted |
 | 0014 | Apps enabled at build time, empty install by default | Accepted |
 | 0015 | Single VPS with Docker Compose | Accepted |
+| 0016 | Conventional Commits and Semantic Versioning | Accepted |
+| 0017 | Dev Containers as the development environment | Accepted |
 
 Template: `template.md`.

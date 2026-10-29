@@ -30,7 +30,8 @@ Read only what your task needs. Each line: file, what it covers, when to read it
 ## How we work
 | File | Covers | Read when |
 | --- | --- | --- |
-| `guides/dev-environment.md` | Toolchain, `pnpm dev`, Dev Container | Setting up or a tool misbehaves |
+| `guides/dev-environment.md` | Dev Container, services, toolchain | Setting up or a tool misbehaves |
+| `guides/versioning.md` | Conventional Commits, SemVer rules, releases | Writing a commit/PR title, changing a contract, releasing |
 | `guides/testing.md` | Test pyramid, contract tests, fixtures | Writing tests |
 | `guides/writing-an-app.md` | From empty folder to installed app | Creating an app by hand |
 | `guides/ports-and-adapters.md` | Adding a port or a new adapter | Swapping or adding infrastructure |

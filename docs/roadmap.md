@@ -6,7 +6,7 @@ read_when: Planning work or deciding what to build next.
 
 **Current phase:** 0 - repository not created yet.
 
-1. **Foundation**: monorepo, toolchain, CI, Docker Compose, Postgres, migrations, logging, `@platform/ui` skeleton with Storybook, docs and agent files.
+1. **Foundation**: Dev Container, monorepo, toolchain, commitlint and release-please, CI, Docker Compose, Postgres, migrations, logging, `@platform/ui` skeleton with Storybook, docs and agent files.
 2. **Core identity**: users, invitations, sign-in, sessions, RBAC with instance scopes, audit writer and viewer. Shell, `AppShellLayout`, `AuthLayout`, members and roles pages.
 3. **App SDK and jobs**: YAML manifest, SDK as RPC-ready contract, instances (schema per instance, settings, bindings), Graphile Worker, scheduler, checkpointed long jobs, runs page, secrets, page specs + json-render. First real automation app.
 4. **Cross-app data**: read views, commands, outbox events, event triggers, Integrations page. Second app consuming the first.

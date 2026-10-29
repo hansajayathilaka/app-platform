@@ -58,7 +58,9 @@ Run `pnpm check` before saying a task is done.
 
 ## Working agreements
 
-- Conventional commits. Small PRs. One concern per PR.
+- Work inside the Dev Container (`docs/guides/dev-environment.md`); never install project tools on the host.
+- [Conventional Commits](https://www.conventionalcommits.org/) for every commit and PR title; [SemVer](https://semver.org/) for every version. Breaking changes use `!` and a `BREAKING CHANGE:` footer. Details: `docs/guides/versioning.md`.
+- Small PRs, one concern each, squash-merged.
 - Tests first for use cases and ports (contract tests for every adapter).
 - If you change behaviour described in `docs/`, update that doc in the same PR (skill `update-docs`).
 - Never put secrets in code, docs, tests or logs.
