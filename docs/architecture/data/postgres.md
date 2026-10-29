@@ -6,7 +6,9 @@ related: [../apps/instances.md, ../../decisions/0003-postgresql-only.md]
 # PostgreSQL
 
 - One database. Schemas: `platform` (core tables), `audit`, `queue` (Graphile Worker), one `a_<app>_<id>` per app instance.
-- Roles: one per instance, limited to its schema plus granted views. Audit is `INSERT`-only for app roles.
+- Roles: one runtime role per instance, limited to its schema plus granted views, and a separate owner role that runs migrations (table owners bypass RLS). Audit is `INSERT`-only for app roles.
+- Row-level security: tables with record rules get generated RLS policies reading `app.principal_id` and `app.scope.<table>` (set with `SET LOCAL`). Cross-app views use `security_invoker = true`. Index the columns policies filter on.
+- The `platform` schema also holds shared contacts and reference data (`../core/master-data.md`).
 - Platform migrations: Drizzle Kit. Instance migrations: our runner applies each app's migrations to every instance schema, tracking versions per schema.
 - `jsonb` for flexible data: studio entity custom fields, workflow specs, settings, job input/output. Index what you query.
 - Postgres-specific behaviour stays behind ports: `InstanceStorageProvisioner`, `UnitOfWork`, `JobQueue`, `ReadModelGateway`.

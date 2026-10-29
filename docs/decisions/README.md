@@ -21,5 +21,11 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0015 | Single VPS with Docker Compose | Accepted |
 | 0016 | Conventional Commits and Semantic Versioning | Accepted |
 | 0017 | Dev Containers as the development environment | Accepted |
+| 0018 | Record rules (RLS) and field-level access on top of RBAC | Accepted |
+| 0019 | Dynamic RPC through a descriptor registry | Accepted |
+| 0020 | Translatable text (message keys) from the first spec | Accepted |
+| 0021 | Shared master and reference data in the core | Accepted |
+| 0022 | Comments, attachments and change history on records | Accepted |
+| 0023 | App data files and transactional instance upgrades | Accepted |
 
 Template: `template.md`.
