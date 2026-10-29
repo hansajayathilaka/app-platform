@@ -8,10 +8,10 @@ Read first: `docs/architecture/apps/app-model.md`, `docs/architecture/apps/manif
 
 1. Confirm id (kebab-case), purpose, permissions, imports, jobs. Ask if unclear.
 2. Run `pnpm gen:app <id>`; it creates `apps/<id>/` with `app.yaml`, `domain/`, `application/`, `adapters/`, `proto/<id>/v1/service.proto`, `specs/pages/`, `migrations/`.
-3. Fill `app.yaml`: permissions, settings schema, imports/exports, jobs, `multiInstance`.
+3. Fill `app.yaml`: permissions, record rules and field permissions, settings schema, imports/exports, jobs, `records`, `multiInstance`. Use `ctx.platform.contacts` for people and organisations instead of an own table.
 4. Domain first (entities + unit tests), then use cases (skill `new-use-case`).
 5. Contract: methods in `service.proto` (skill `add-rpc-method`).
 6. Tables: skill `db-migration` (they run per instance; no `instance_id`).
-7. Pages: skill `write-page-spec`.
+7. Pages: skill `write-page-spec`; messages in `i18n/en.yaml`. Default records in `data/`, `seed/`, `demo/`.
 8. Enable the app in `deploy/apps.yaml`; `pnpm dev`; install an instance; add a Playwright test for the main flow.
 9. `pnpm check`. Done only when it passes.
