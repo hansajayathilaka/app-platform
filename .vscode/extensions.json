@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "redhat.vscode-yaml",
+    "bufbuild.vscode-buf",
+    "vitest.explorer",
+    "ms-playwright.playwright",
+    "ms-vscode-remote.remote-containers"
+  ]
+}
