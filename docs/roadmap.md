@@ -8,7 +8,7 @@ read_when: Planning work or deciding what to build next.
 
 1. **Foundation**: Dev Container, monorepo, toolchain, commitlint and release-please, CI, Docker Compose, Postgres, migrations, logging, `@platform/ui` skeleton with Storybook, i18n catalogs and `intl-messageformat` wiring, docs and agent files.
 2. **Core identity**: users, invitations, sign-in, sessions, RBAC with instance scopes, record rules (RLS) and field permissions, audit writer and viewer, reference data. Module framework (`module.yaml`, `ctx.module`, `m_<id>` schemas) and the `contacts` module. Shell, `AppShellLayout`, `AuthLayout`, members and roles pages.
-3. **App SDK and jobs**: YAML manifest, SDK as RPC-ready contract, instances (schema per instance, settings, bindings), Graphile Worker, scheduler, checkpointed long jobs, runs page, secrets, page specs (with message keys) + json-render, descriptor registry and dynamic RPC dispatcher with the generic browser `invoke`, data files and transactional instance upgrades. `SearchBar`, `BoardPage`, `CalendarPage`. First real automation app.
+3. **App SDK and jobs**: YAML manifest, SDK as RPC-ready contract, instances (schema per instance, settings, bindings), Graphile Worker, scheduler, checkpointed long jobs, runs page, secrets, page specs (with message keys) + json-render, descriptor registry and dynamic RPC dispatcher with the generic browser `invoke`, data files and transactional instance upgrades. `CrudTable`, `CrudForm`, `CrudDetail`, `SearchBar`, `BoardPage`, `CalendarPage`. First real automation app.
 4. **Cross-app data**: read views, commands, outbox events, event triggers, Integrations page, `security_invoker` views with record rules and field masking, `record-timeline` module (comments, attachments, history). Second app consuming the first.
 5. **Spec runtime and sandbox**: entities and workflow graphs from specs, isolate sandbox, egress proxy, app versions, review screen.
 6. **App studio**: agent, tools, mock-adapter previews, quotas.
@@ -22,9 +22,10 @@ read_when: Planning work or deciding what to build next.
 - One generated entity model as the single source for every app artefact.
 - Extension points (fields on other apps' entities, view slots, command hooks).
 - Platform sequences (`INV/2026/0001`); apps number their own records.
+- Code generators, a server-side CRUD kit and a required list API shape (2026-10-30); replaced by configurable CRUD UI components (ADR 0025).
 
 ## Under discussion (2026-10-30, one at a time)
-From the developer-speed review; nothing decided yet: generators and a CRUD kit, a standard list query, building-block modules (notifications, email, files, connections, webhooks, search), shared stateless libraries, app-scoped UI components, import/export timing, recording the SDK version on app versions.
+From the developer-speed review, still open: building-block modules (notifications, email, files, connections, webhooks, search), shared stateless libraries, app-scoped UI components, import/export timing, recording the SDK version on app versions.
 
 ## Open questions
 - Who approves studio apps before install: the requester or an admin?

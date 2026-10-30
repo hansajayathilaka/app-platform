@@ -28,5 +28,6 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0022 | Comments, attachments and change history on records | Accepted; amended by 0024 |
 | 0023 | App data files and transactional instance upgrades | Accepted |
 | 0024 | Pluggable supporting modules (core, modules, apps) | Accepted |
+| 0025 | Configurable CRUD UI components, no required API shape | Accepted |
 
 Template: `template.md`.

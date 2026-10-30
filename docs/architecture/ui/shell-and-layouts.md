@@ -28,6 +28,7 @@ The shell is a static Vite build served by Caddy. It owns login, navigation, per
 
 ## Components
 - Primitives: Button, Input, Textarea, Select, Combobox, Checkbox, Switch, DatePicker, Badge, Avatar, Tooltip, Dialog, Drawer, Tabs, Toast, Skeleton.
+- CRUD: CrudTable, CrudForm, CrudDetail, bound to any method by mapping (`crud-components.md`).
 - Composites: DataTable (server-side sort/filter/group-by/paging, bulk actions), Form (schema-driven), PageHeader, EmptyState, ConfirmDialog, StatusBadge, KeyValueList.
 - Data views: SearchBar (filters, group-by, facets, saved filters per user), Kanban, Calendar, PivotTable, Chart.
 - Reference data: CountrySelect, CurrencyInput, UnitInput.

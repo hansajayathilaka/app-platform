@@ -22,6 +22,7 @@
 | `ui/server-driven-ui.md` | `GetPage`, permission filtering, caching, renderer | How pages reach the browser |
 | `ui/page-spec.md` | YAML spec format, validation pipeline, tooling | Writing or validating a page |
 | `ui/ui-catalog.md` | Adding components to the catalog | Building UI components |
+| `ui/crud-components.md` | CrudTable, CrudForm, CrudDetail and their mappings | Building list, form or detail screens |
 | `ui/i18n.md` | Message keys, catalogs, locale, formatting | Any user-facing text |
 | `studio/app-studio.md` | Agent, outputs, pipeline, review | Studio features |
 | `studio/sandbox.md` | Isolate runtime, capability tokens, egress | Running generated code |
