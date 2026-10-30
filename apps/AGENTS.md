@@ -1,6 +1,6 @@
 # apps
 
-- Each app: `app.yaml`, `domain/`, `application/`, `adapters/`, `proto/`, `specs/pages/`, `migrations/`, `i18n/`, optional `data/`, `seed/`, `demo/`.
+- Each app: `app.yaml`, `domain/`, `application/`, `adapters/`, `proto/`, `specs/pages/`, `migrations/`, `i18n/`, optional `data/`, `seed/`, `demo/`, `ui/` (app-scoped components).
 - People and organisations come from the `contacts` module, countries, currencies and units from `ctx.platform.reference`; do not create own tables for them.
 - Need a shared capability? Use or write a module (`modules/`), declared under `modules:` in `app.yaml`.
 - User-facing text is a message key, never a literal.

@@ -25,7 +25,7 @@ read_when: Planning work or deciding what to build next.
 - Code generators, a server-side CRUD kit and a required list API shape (2026-10-30); replaced by configurable CRUD UI components (ADR 0025).
 
 ## Under discussion (2026-10-30, one at a time)
-From the developer-speed review, still open: building-block modules (notifications, email, files, connections, webhooks, search), shared stateless libraries, app-scoped UI components, import/export timing, recording the SDK version on app versions.
+From the developer-speed review, still open: building-block modules (notifications, email, files, connections, webhooks, search), shared stateless libraries, import/export timing, recording the SDK version on app versions.
 
 ## Open questions
 - Who approves studio apps before install: the requester or an admin?
