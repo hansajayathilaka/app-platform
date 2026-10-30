@@ -27,5 +27,10 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0021 | Shared master and reference data in the core | Accepted |
 | 0022 | Comments, attachments and change history on records | Accepted |
 | 0023 | App data files and transactional instance upgrades | Accepted |
+| 0024 | Generators, CRUD kit, test kit and starter templates | Proposed |
+| 0025 | Standard list query and common contract types | Proposed |
+| 0026 | Platform building-block services (files, notifications, email, connections, webhooks, search) | Proposed |
+| 0027 | Shared stateless kits apps may import | Proposed |
+| 0028 | App-scoped UI components for hand-written apps (amends 0010) | Proposed |
 
 Template: `template.md`.

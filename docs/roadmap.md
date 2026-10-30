@@ -14,6 +14,10 @@ read_when: Planning work or deciding what to build next.
 6. **App studio**: agent, tools, mock-adapter previews, quotas.
 7. **Hardening**: API tokens, TOTP/passkeys, SSO, rate limits, OpenTelemetry, backups and restore drill, audit retention.
 
+## Proposed (2026-10-30, developer-speed review, awaiting decision)
+- ADR 0024 generators and CRUD kit (`gen:app` in phase 1, the rest in phase 3); ADR 0025 list query (phase 3); ADR 0026 platform services (phases 2 to 4, each when the first app needs it); ADR 0027 kits (phase 3); ADR 0028 app-scoped components (phase 3).
+- Move import/export into phase 4; stamp SDK and spec versions on `app_versions` from phase 3.
+
 ## Later (agreed, not scheduled)
 - SDK and contract compatibility policy (`sdk:` range in the manifest, support window per SDK major).
 - Generic CSV/XLSX import and export from list views.
