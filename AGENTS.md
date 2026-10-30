@@ -48,6 +48,7 @@ Run `pnpm check` before saying a task is done.
 | `packages/core-application` | Use cases and ports |
 | `packages/adapters/*` | Port implementations (Postgres, auth, queue, sandbox, mail, LLM) |
 | `packages/interfaces/*` | Driving adapters: Connect RPC, webhooks, CLI |
+| `packages/module-types` | Module type interfaces and contract suites (`storage`, ...) |
 | `packages/sdk` | The `ctx` contract apps code against |
 | `packages/ui` | `@platform/ui` components, layouts, catalog |
 | `proto/` | `.proto` contracts |

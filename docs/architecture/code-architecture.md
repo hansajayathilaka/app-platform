@@ -30,11 +30,11 @@ packages/
     auth-better-auth/     # AuthProvider
     queue-graphile/       # JobQueue, Scheduler
     sandbox-isolates/     # AppRuntime for studio apps
-    storage-local/  storage-s3/  # FileStorage backends
     mail-smtp/  llm-claude/
   interfaces/
     rpc/                  # Connect handlers -> use cases
     webhooks/  cli/
+  module-types/<type>/    # module type interfaces + contract suites (storage, ...)
   sdk/                    # ctx contract + in-process and RPC implementations
   ui/                     # @platform/ui components, layouts, catalog
 modules/<id>/{contract,domain,application,adapters,specs,proto,ui} # supporting modules

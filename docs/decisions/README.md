@@ -27,9 +27,9 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0021 | Shared master and reference data in the core | Accepted; amended by 0024 |
 | 0022 | Comments, attachments and change history on records | Accepted; amended by 0024 |
 | 0023 | App data files and transactional instance upgrades | Accepted |
-| 0024 | Pluggable supporting modules (core, modules, apps) | Accepted |
+| 0024 | Pluggable supporting modules, module types and providers | Accepted |
 | 0025 | Configurable CRUD UI components, no required API shape | Accepted |
 | 0026 | App-scoped UI components for hand-written apps | Accepted |
-| 0027 | Pluggable file storage (Django-style named storages) | Accepted |
+| 0027 | File storage as the first module type (Django-style) | Accepted |
 
 Template: `template.md`.

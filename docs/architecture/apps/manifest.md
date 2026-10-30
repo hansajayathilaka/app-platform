@@ -31,6 +31,8 @@ recordRules:              # row scopes per table (../core/permissions.md)
   rules:
     own: { field: created_by, op: eq, value: $principal.id }
 fieldPermissions: {}      # e.g. rules.notes: invoice-reminders:rule:read_notes
+uses:                     # module types and the providers bound to them (../modules/README.md)
+  storage: { type: ^1, bindings: { default: storage-local } }
 modules:                  # supporting modules this app needs (../modules/README.md)
   record-timeline:
     version: ^1
@@ -45,4 +47,4 @@ egress: []                # outbound hosts (required for studio apps)
 secrets: []
 ```
 
-Rules: every handler named must exist; permissions used in specs must be declared; imports must match a published contract version; required modules must be in the build and their config must match the module's `appConfig` schema; record-rule and field-permission targets must exist in the app's tables and proto; user-facing text is a message key (`{ t: key }`).
+Rules: every handler named must exist; permissions used in specs must be declared; imports must match a published contract version; required modules and bound providers must be in the build and satisfy the declared version ranges, and module config must match the module's `appConfig` schema; record-rule and field-permission targets must exist in the app's tables and proto; user-facing text is a message key (`{ t: key }`).

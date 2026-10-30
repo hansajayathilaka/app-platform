@@ -13,7 +13,8 @@ read_when: A term in another doc or in code is unclear.
 | Data file | YAML records an app ships in `data/`, `seed/` or `demo/`, matched by stable key |
 | Descriptor registry | Store of each app version's protobuf descriptors, used for dynamic RPC dispatch |
 | Field permission | A permission required to read or write one field; masked by the RPC dispatcher |
-| Storage | A named file store (`default`, `public`, ...) behind the `FileStorage` port; backend chosen in config |
+| Module type | A versioned interface (`storage@1`) that provider modules implement; apps bind a provider and call `ctx.use(type)` |
+| Provider module | A module that implements a module type, e.g. `storage-local`, `storage-s3` |
 | Module | A supporting capability (contacts, record timeline, ...) installed once per deployment and plugged into apps via `ctx.module(id)`; not an app. A library module is stateless shared code imported directly |
 | Reference data | Countries, currencies, rates, units, languages, timezones owned by the core |
 | Message key | `{ t: key }` in place of literal text; resolved from i18n catalogs |

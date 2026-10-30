@@ -22,7 +22,7 @@ A module is a reusable capability that apps plug in when they need it (ADR 0024)
 ## Library modules
 A module can be just a library: `library: true` in `module.yaml`, no schema, no API, no `ctx`, no I/O. Apps and modules import it directly (`modules/money`, `modules/state-machine`). Use it to share code between apps instead of copying it.
 
-Candidates, built only when a real app needs them (decided 2026-10-30: no module is built up front): notifications, email, files (UI on top of the core `FileStorage` port), connections (OAuth), outbound webhooks, search, documents.
+Candidates, built only when a real app needs them (decided 2026-10-30: no module is built up front): notifications, email, files (UI on top of the `storage` type), connections (OAuth), outbound webhooks, search, documents.
 
 ## module.yaml
 ```yaml
@@ -35,8 +35,8 @@ schema: true                   # owns Postgres schema m_notifications
 permissions: [notifications:preference:write]
 settings: {}                   # deployment-level settings page (JSON Schema subset)
 appConfig: {}                  # JSON Schema for per-app config in app manifests
-providers:                     # adapters chosen in deployment config
-  channel: [in-app, email]
+uses:                          # module types this module needs (see Module types)
+  email: { type: ^1, bindings: { default: email-smtp } }
 contributes:
   services: proto/notifications/v1/service.proto
   pages: specs/pages/
@@ -45,6 +45,17 @@ contributes:
 events: [notifications.sent.v1]
 i18n: i18n/
 ```
+
+## Module types and providers
+- A **type** is a versioned interface with a contract test suite, in `packages/module-types/<type>`: `storage`, later `email`, `sms`, `payments`, `llm`, `search`.
+- A **provider module** implements one: `provides: storage@1.2.0` in its `module.yaml` (`storage-local`, `storage-s3`). Several can be installed together; their settings and secrets belong to the provider.
+- Apps and modules bind providers by name under `uses` and code against the type only: `ctx.use('storage', 'archive')`.
+- **Compatibility check** (build and install): bound providers and required modules must satisfy the declared SemVer ranges, and providers must pass the type's contract suite in CI. A mismatch fails with app, type, expected range and found version.
+- **Runtime switching (later, room kept):** bindings are stored per instance (`instance_module_bindings`) and `ctx.use` resolves on each call, so an admin override can be added without app changes.
+
+| Type | Providers | Doc |
+| --- | --- | --- |
+| `storage@1` | `storage-local`, `storage-s3` | `storage.md` |
 
 ## Using a module from an app
 ```yaml
@@ -55,11 +66,15 @@ modules:
     version: ^1
     records: { lead: { table: leads, comments: true, history: [stage] } }
 ```
+uses:
+  storage: { type: ^1, bindings: { default: storage-local } }
+```
 ```ts
 const contact = await ctx.module('contacts').get(contactId)
+const files = ctx.use('storage')
 ```
 - Types come from the module's `contract` package. Studio apps use the same API over RPC from the sandbox.
-- The build includes every module that an enabled app requires; installing an app whose modules are missing is refused.
+- The build includes every module and provider that an enabled app requires, after the compatibility check; installing an app whose modules are missing or incompatible is refused.
 
 ## Inside a module
 - Folders: `module.yaml`, `contract/`, `domain/`, `application/`, `adapters/`, `proto/`, `specs/`, `ui/`, `migrations/`, `i18n/`.
