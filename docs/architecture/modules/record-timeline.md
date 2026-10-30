@@ -23,7 +23,7 @@ modules:
 ## Storage (schema `m_record_timeline`)
 - Record ref = `(app_instance_id, type, id)`.
 - `record_comments(id, ref, author_id, body_md, created_at, edited_at, deleted_at)`. @mentions notify through a notifications module when one is installed.
-- `record_attachments(id, ref, storage_key, name, size, mime, added_by, added_at)`; bytes go through the core `FileStorage` port.
+- `record_attachments(id, ref, storage_key, name, size, mime, added_by, added_at)`; bytes go through the core `FileStorage` port (`../core/file-storage.md`).
 - History: no table. The timeline reads `audit_events` for the record and shows only the declared `history` fields, after redaction.
 
 ## Access

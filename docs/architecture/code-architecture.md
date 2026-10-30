@@ -30,6 +30,7 @@ packages/
     auth-better-auth/     # AuthProvider
     queue-graphile/       # JobQueue, Scheduler
     sandbox-isolates/     # AppRuntime for studio apps
+    storage-local/  storage-s3/  # FileStorage backends
     mail-smtp/  llm-claude/
   interfaces/
     rpc/                  # Connect handlers -> use cases

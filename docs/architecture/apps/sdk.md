@@ -18,6 +18,7 @@ App code never imports the DB client, auth or queue. It receives `ctx`, scoped t
 | `ctx.data.from(importName)` | Read another instance's exported read model via the binding |
 | `ctx.call(importName, command, input)` | Call another app's exported command |
 | `ctx.platform.reference` | Countries, currencies, rates, units (`../core/reference-data.md`) |
+| `ctx.storage(alias?)` | Named file storage scoped to the instance (`../core/file-storage.md`) |
 | `ctx.module(id)` | A supporting module's typed API, e.g. `ctx.module('contacts')` (`../modules/README.md`) |
 | `ctx.i18n.t(key, args, locale?)` | Translated text for emails and job output (`../ui/i18n.md`) |
 | `ctx.settings`, `ctx.secrets.get(name)` | Instance settings and encrypted secrets |

@@ -22,7 +22,7 @@ A module is a reusable capability that apps plug in when they need it (ADR 0024)
 ## Library modules
 A module can be just a library: `library: true` in `module.yaml`, no schema, no API, no `ctx`, no I/O. Apps and modules import it directly (`modules/money`, `modules/state-machine`). Use it to share code between apps instead of copying it.
 
-Candidates, built only when a real app needs them: notifications, email, files, connections (OAuth), outbound webhooks, search, documents.
+Candidates, built only when a real app needs them (decided 2026-10-30: no module is built up front): notifications, email, files (UI on top of the core `FileStorage` port), connections (OAuth), outbound webhooks, search, documents.
 
 ## module.yaml
 ```yaml

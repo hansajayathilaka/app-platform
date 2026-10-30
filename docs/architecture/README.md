@@ -8,6 +8,7 @@
 | `core/sessions.md` | Session cookie, storage, rotation, CSRF | Session or cookie work |
 | `core/permissions.md` | Permission strings, roles, instance-scoped grants, record rules, field permissions, `authorize` | Access control |
 | `core/audit.md` | Audit table, same-transaction rule, retention | Anything that changes state |
+| `core/file-storage.md` | `FileStorage` port, named storages, backends, scoping, URLs | Storing or serving files |
 | `core/reference-data.md` | Countries, currencies, rates, units, languages, timezones | Apps needing money, units or countries |
 | `modules/README.md` | Supporting modules: module.yaml, `ctx.module`, schemas, providers, boundaries | Writing or using a module; core vs module vs app |
 | `modules/contacts.md` | Contacts module: people and organisations | Apps needing people or orgs |

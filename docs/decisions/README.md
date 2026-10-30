@@ -30,5 +30,6 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0024 | Pluggable supporting modules (core, modules, apps) | Accepted |
 | 0025 | Configurable CRUD UI components, no required API shape | Accepted |
 | 0026 | App-scoped UI components for hand-written apps | Accepted |
+| 0027 | Pluggable file storage (Django-style named storages) | Accepted |
 
 Template: `template.md`.
