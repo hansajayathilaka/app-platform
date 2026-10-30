@@ -15,7 +15,7 @@ read_when: Planning work or deciding what to build next.
 7. **Hardening**: API tokens, TOTP/passkeys, SSO, rate limits, OpenTelemetry, backups and restore drill, audit retention.
 
 ## Later (agreed, not scheduled)
-- SDK and contract compatibility policy (`sdk:` range in the manifest, support window per SDK major).
+- SDK and contract compatibility policy, including recording SDK, spec-schema and module-type versions per app version (deferred 2026-10-30).
 - Import and export: not needed now (2026-10-30). Design from scratch later; the `CrudTable`-props approach was judged too narrow.
 
 ## Considered and declined (2026-10-29, Odoo comparison)
@@ -23,9 +23,6 @@ read_when: Planning work or deciding what to build next.
 - Extension points (fields on other apps' entities, view slots, command hooks).
 - Platform sequences (`INV/2026/0001`); apps number their own records.
 - Code generators, a server-side CRUD kit and a required list API shape (2026-10-30); replaced by configurable CRUD UI components (ADR 0025).
-
-## Under discussion (2026-10-30, one at a time)
-From the developer-speed review, still open: recording the SDK version on app versions.
 
 ## Open questions
 - Who approves studio apps before install: the requester or an admin?
