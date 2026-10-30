@@ -37,6 +37,7 @@ uses:
     bindings:
       default: storage-local
       archive: { provider: storage-gcs, connection: gcs-archive }   # connection = bucket + service account, set by an admin
+      media:   { provider: storage-gcs, connection: gcs-media }     # same provider, another bucket
       public:  { provider: storage-local, public: true }
 ```
 ```ts

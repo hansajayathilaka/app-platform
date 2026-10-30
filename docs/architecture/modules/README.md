@@ -75,6 +75,7 @@ configSchema:
 - **Check:** `validateConfig` (schema plus provider rules) and `testConnection` (for storage: write, read, delete a probe object) run on save and at install. Install does not finish while a binding's connection fails.
 - **Bind:** in the manifest `archive: { provider: storage-gcs, connection: gcs-archive }`, or leave `connection` out and the install screen asks the admin to pick or create one.
 - **Automate:** deployment config may predefine connections, with secrets referenced from the secret store: `serviceAccount: ${secret:GCS_SA_JSON}`.
+- **Many connections per provider:** one provider module can have any number of connections (`gcs-archive`, `gcs-media`: two buckets, two service accounts). The platform creates one provider instance per (provider, connection), cached and rebuilt when the connection changes, so an app can bind both at once.
 - **Isolation:** a provider instance only receives its own connection's config; apps never see the values.
 
 ## Using a module from an app
