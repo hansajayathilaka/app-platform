@@ -51,6 +51,7 @@ Run `pnpm check` before saying a task is done.
 | `packages/sdk` | The `ctx` contract apps code against |
 | `packages/ui` | `@platform/ui` components, layouts, catalog |
 | `proto/` | `.proto` contracts |
+| `modules/<id>` | Supporting modules apps plug in (contacts, record timeline, ...) |
 | `apps/<app>` | One app per folder, same layering as the core |
 | `services/server` | Composition root and process entry |
 | `services/web` | Static React shell |

@@ -1,6 +1,6 @@
 # ADR 0021: Shared master and reference data in the core
 
-- **Status:** Accepted
+- **Status:** Accepted; amended by 0024 (contacts are now the `contacts` module)
 - **Date:** 2026-10-29
 - **Deciders:** Hansa
 

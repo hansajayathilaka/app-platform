@@ -31,8 +31,10 @@ recordRules:              # row scopes per table (../core/permissions.md)
   rules:
     own: { field: created_by, op: eq, value: $principal.id }
 fieldPermissions: {}      # e.g. rules.notes: invoice-reminders:rule:read_notes
-records:                  # comments / attachments / history (../core/records.md)
-  rule: { table: rules, comments: true, history: [enabled, schedule] }
+modules:                  # supporting modules this app needs (../modules/README.md)
+  record-timeline:
+    version: ^1
+    records: { rule: { table: rules, comments: true, history: [enabled, schedule] } }
 i18n: i18n/               # message catalogs, en.yaml required (../ui/i18n.md)
 data: data/               # upserted on install and upgrade (instances.md)
 seed: seed/               # inserted on install only
@@ -43,4 +45,4 @@ egress: []                # outbound hosts (required for studio apps)
 secrets: []
 ```
 
-Rules: every handler named must exist; permissions used in specs must be declared; imports must match a published contract version; record-rule and field-permission targets must exist in the app's tables and proto; user-facing text is a message key (`{ t: key }`).
+Rules: every handler named must exist; permissions used in specs must be declared; imports must match a published contract version; required modules must be in the build and their config must match the module's `appConfig` schema; record-rule and field-permission targets must exist in the app's tables and proto; user-facing text is a message key (`{ t: key }`).

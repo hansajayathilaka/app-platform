@@ -8,7 +8,7 @@ related: [manifest.md, instances.md, sdk.md, ../../guides/writing-an-app.md]
 An app is a package `apps/<id>` with a manifest, use cases, page specs, `.proto` contracts, migrations, i18n catalogs and optional data files, following the same layering as the core. Studio-generated apps have the same shape but are stored as versioned bundles and run in the sandbox.
 
 ## Build-time selection
-- The deployment config lists enabled apps. Only those are bundled and migrated; disabled apps leave no code or tables (ADR 0014).
+- The deployment config lists enabled apps. Only those, plus the modules they require (`../modules/README.md`), are bundled and migrated; disabled apps leave no code or tables (ADR 0014).
 - A fresh system has **no apps installed**. An admin installs instances as needed.
 
 ## Lifecycle (per instance)
@@ -20,5 +20,5 @@ Every step is audited.
 
 ## Isolation
 - Data: schema per instance plus a DB role per instance (`instances.md`).
-- Code: an app imports only other apps' published contracts; dependency-cruiser enforces it.
+- Code: an app imports only other apps' published contracts and modules' `contract` packages; dependency-cruiser enforces it.
 - Runtime: per-instance concurrency limits and timeouts on jobs.

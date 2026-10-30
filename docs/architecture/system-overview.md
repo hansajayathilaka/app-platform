@@ -14,6 +14,8 @@ Browser: static React shell ---- Connect RPC (+ webhooks) ----+
         |  only through                                         |
   App SDK (ctx): db, authorize, audit, events, jobs, data, secrets
         |
+  Supporting modules (plugged in when needed): contacts | record timeline | ...
+        |
   Platform core: identity & sessions | RBAC | audit | data contracts | event outbox | scheduler & queue
         |
   PostgreSQL: platform schema, audit, queue, one schema per app instance
