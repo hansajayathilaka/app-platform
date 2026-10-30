@@ -1,6 +1,6 @@
 # ADR 0010: Server-driven UI with YAML specs validated by JSON Schema
 
-- **Status:** Accepted
+- **Status:** Accepted; amended by 0026 (app-scoped components)
 - **Date:** 2026-10-29
 - **Deciders:** Hansa
 

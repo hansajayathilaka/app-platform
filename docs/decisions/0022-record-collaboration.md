@@ -1,6 +1,6 @@
 # ADR 0022: Comments, attachments and change history on records
 
-- **Status:** Accepted
+- **Status:** Accepted; amended by 0024 (now the `record-timeline` module)
 - **Date:** 2026-10-29
 - **Deciders:** Hansa
 

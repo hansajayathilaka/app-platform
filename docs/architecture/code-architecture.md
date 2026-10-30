@@ -34,8 +34,10 @@ packages/
   interfaces/
     rpc/                  # Connect handlers -> use cases
     webhooks/  cli/
+  module-types/<type>/    # module type interfaces + contract suites (storage, ...)
   sdk/                    # ctx contract + in-process and RPC implementations
   ui/                     # @platform/ui components, layouts, catalog
+modules/<id>/{contract,domain,application,adapters,specs,proto,ui} # supporting modules
 apps/<app>/{domain,application,adapters,specs,proto}
 services/
   server/                 # composition root
@@ -47,7 +49,7 @@ services/
 - Repository + Unit of Work; domain events for side effects; CQRS-lite where reads differ from writes.
 - **Contract tests per port**: one shared suite every adapter of that port must pass.
 - Ports only where a swap is plausible: database, auth, queue, file storage, email, LLM, sandbox, page renderer.
-- `dependency-cruiser` fails CI on any layer or app-boundary violation.
+- `dependency-cruiser` fails CI on any layer, app-boundary or module-boundary violation (core never imports modules; apps and modules import only a module's `contract`).
 
 ## Swap cost
 - Auth provider: one adapter; our sessions and RBAC stay.

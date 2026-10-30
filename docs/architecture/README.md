@@ -8,8 +8,11 @@
 | `core/sessions.md` | Session cookie, storage, rotation, CSRF | Session or cookie work |
 | `core/permissions.md` | Permission strings, roles, instance-scoped grants, record rules, field permissions, `authorize` | Access control |
 | `core/audit.md` | Audit table, same-transaction rule, retention | Anything that changes state |
-| `core/master-data.md` | Shared contacts, countries, currencies, units | Apps needing people, orgs, money or units |
-| `core/records.md` | Comments, attachments, change history on records | Record timelines |
+| `core/reference-data.md` | Countries, currencies, rates, units, languages, timezones | Apps needing money, units or countries |
+| `modules/README.md` | Supporting modules: module.yaml, `ctx.module`, module types and providers, compatibility, boundaries | Writing or using a module; core vs module vs app |
+| `modules/storage.md` | Storage module type, providers (local, S3), bindings, URLs | Storing or serving files |
+| `modules/contacts.md` | Contacts module: people and organisations | Apps needing people or orgs |
+| `modules/record-timeline.md` | Record-timeline module: comments, attachments, history | Record timelines |
 | `apps/app-model.md` | What an app is, build-time selection, lifecycle | Creating or changing an app |
 | `apps/manifest.md` | Manifest fields and validation | Editing a manifest |
 | `apps/instances.md` | Install twice, schema per instance, settings and integrations | Install/uninstall, migrations, bindings |
@@ -20,6 +23,7 @@
 | `ui/server-driven-ui.md` | `GetPage`, permission filtering, caching, renderer | How pages reach the browser |
 | `ui/page-spec.md` | YAML spec format, validation pipeline, tooling | Writing or validating a page |
 | `ui/ui-catalog.md` | Adding components to the catalog | Building UI components |
+| `ui/crud-components.md` | CrudTable, CrudForm, CrudDetail and their mappings | Building list, form or detail screens |
 | `ui/i18n.md` | Message keys, catalogs, locale, formatting | Any user-facing text |
 | `studio/app-studio.md` | Agent, outputs, pipeline, review | Studio features |
 | `studio/sandbox.md` | Isolate runtime, capability tokens, egress | Running generated code |

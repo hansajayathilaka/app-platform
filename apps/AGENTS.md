@@ -1,7 +1,8 @@
 # apps
 
-- Each app: `app.yaml`, `domain/`, `application/`, `adapters/`, `proto/`, `specs/pages/`, `migrations/`, `i18n/`, optional `data/`, `seed/`, `demo/`.
-- People, organisations, countries, currencies and units come from `ctx.platform`; do not create own tables for them.
+- Each app: `app.yaml`, `domain/`, `application/`, `adapters/`, `proto/`, `specs/pages/`, `migrations/`, `i18n/`, optional `data/`, `seed/`, `demo/`, `ui/` (app-scoped components).
+- People and organisations come from the `contacts` module, countries, currencies and units from `ctx.platform.reference`; do not create own tables for them.
+- Need a shared capability? Use or write a module (`modules/`), declared under `modules:` in `app.yaml`. For swappable capabilities (storage, ...) bind a provider under `uses:` and call `ctx.use(type)`.
 - User-facing text is a message key, never a literal.
 - Use only `ctx` from `@platform/sdk`. Never import another app's code; use imports declared in `app.yaml`.
 - Tables live in the instance schema; no `instance_id` columns.

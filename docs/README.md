@@ -14,7 +14,8 @@ Read only what your task needs. Each line: file, what it covers, when to read it
 | --- | --- | --- |
 | `architecture/system-overview.md` | Big picture: shell, apps, SDK, core, Postgres | Any cross-cutting change |
 | `architecture/code-architecture.md` | Layers, ports, dependency rule, folder layout | Writing any code |
-| `architecture/core/*` | Identity, auth, sessions, permissions and record rules, audit, master data, record collaboration | Touching login, access control, audit, contacts, record timelines |
+| `architecture/core/*` | Identity, auth, sessions, permissions and record rules, audit, reference data | Touching login, access control, audit, reference data |
+| `architecture/modules/*` | Supporting modules (contacts, record timeline) and how to write one | Writing or using a module |
 | `architecture/apps/*` | App model, manifest, instances, SDK, cross-app data | Building or changing an app or the SDK |
 | `architecture/jobs/jobs-runtime.md` | Triggers, scheduler, retries, long jobs, secrets | Jobs, schedules, automations |
 | `architecture/ui/*` | Shell, layouts, server-driven UI, page spec, catalog, i18n | Any UI work |

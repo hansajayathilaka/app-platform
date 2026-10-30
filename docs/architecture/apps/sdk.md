@@ -17,7 +17,9 @@ App code never imports the DB client, auth or queue. It receives `ctx`, scoped t
 | `ctx.jobs.enqueue(job, input, opts)` | Queue a job, same transaction |
 | `ctx.data.from(importName)` | Read another instance's exported read model via the binding |
 | `ctx.call(importName, command, input)` | Call another app's exported command |
-| `ctx.platform.contacts`, `ctx.platform.reference` | Shared contacts, countries, currencies, units (`../core/master-data.md`) |
+| `ctx.platform.reference` | Countries, currencies, rates, units (`../core/reference-data.md`) |
+| `ctx.use(type, binding?)` | A module type's bound provider, e.g. `ctx.use('storage', 'archive')` (`../modules/README.md`) |
+| `ctx.module(id)` | A supporting module's typed API, e.g. `ctx.module('contacts')` (`../modules/README.md`) |
 | `ctx.i18n.t(key, args, locale?)` | Translated text for emails and job output (`../ui/i18n.md`) |
 | `ctx.settings`, `ctx.secrets.get(name)` | Instance settings and encrypted secrets |
 | `ctx.http` | Outbound fetch through the egress proxy (timeouts, allowlist, logging) |

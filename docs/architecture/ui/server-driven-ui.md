@@ -13,4 +13,4 @@ The shell is static; every app page comes from the server. This is what lets stu
 - The spec format is **ours** (versioned JSON Schema in `core-application`). Rendering sits behind the `PageRenderer` port.
 - Renderer adapter: **json-render** (React) against the `@platform/ui` catalog. Pinned exact versions.
 - Mobile (possible, unconfirmed): React Native via json-render's RN renderer and a mobile registry; or, for fully native, the server compiles our spec to A2UI messages.
-- Escape hatch: a page needing something the catalog cannot express gets a new reviewed catalog component, never page-specific React.
+- Escape hatch: a page needing something the catalog cannot express uses an app-scoped component (`ui-catalog.md`, ADR 0026) or a new catalog component, never React outside the catalog.
