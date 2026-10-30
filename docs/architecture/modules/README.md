@@ -48,14 +48,34 @@ i18n: i18n/
 
 ## Module types and providers
 - A **type** is a versioned interface with a contract test suite, in `packages/module-types/<type>`: `storage`, later `email`, `sms`, `payments`, `llm`, `search`.
-- A **provider module** implements one: `provides: storage@1.2.0` in its `module.yaml` (`storage-local`, `storage-s3`). Several can be installed together; their settings and secrets belong to the provider.
+- A **provider module** implements one: `provides: storage@1.2.0` in its `module.yaml` (`storage-local`, `storage-s3`). Several can be installed together. Their configuration lives in connections (below).
 - Apps and modules bind providers by name under `uses` and code against the type only: `ctx.use('storage', 'archive')`.
+- **Connections** hold provider configuration and credentials (next section).
 - **Compatibility check** (build and install): bound providers and required modules must satisfy the declared SemVer ranges, and providers must pass the type's contract suite in CI. A mismatch fails with app, type, expected range and found version.
 - **Runtime switching (later, room kept):** bindings are stored per instance (`instance_module_bindings`) and `ctx.use` resolves on each call, so an admin override can be added without app changes.
 
 | Type | Providers | Doc |
 | --- | --- | --- |
 | `storage@1` | `storage-local`, `storage-s3` | `storage.md` |
+
+## Provider connections (configuration and credentials)
+A provider declares what it needs; admins create named connections; bindings point at one.
+
+```yaml
+# modules/storage-gcs/module.yaml
+provides: storage@1.0.0
+configSchema:
+  bucket: { type: string }
+  projectId: { type: string }
+  prefix: { type: string, default: "" }
+  serviceAccount: { type: string, format: file, secret: true, accept: application/json }
+```
+- **Create:** Admin, Modules, `storage-gcs`, New connection (`gcs-archive`). The form is generated from `configSchema`. Secret fields are write-only.
+- **Store:** `module_connections(id, provider, name, config jsonb, secret_refs, created_by, updated_at)`. Secrets are envelope-encrypted like instance secrets, never returned to the UI, and every read is audited. Rotate by replacing the value; `ctx.use` resolves per call, so new credentials apply on the next call.
+- **Check:** `validateConfig` (schema plus provider rules) and `testConnection` (for storage: write, read, delete a probe object) run on save and at install. Install does not finish while a binding's connection fails.
+- **Bind:** in the manifest `archive: { provider: storage-gcs, connection: gcs-archive }`, or leave `connection` out and the install screen asks the admin to pick or create one.
+- **Automate:** deployment config may predefine connections, with secrets referenced from the secret store: `serviceAccount: ${secret:GCS_SA_JSON}`.
+- **Isolation:** a provider instance only receives its own connection's config; apps never see the values.
 
 ## Using a module from an app
 ```yaml

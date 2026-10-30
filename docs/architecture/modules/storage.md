@@ -19,19 +19,25 @@ Modelled on Django's storage API (ADR 0027): one interface, interchangeable prov
 | `url(name, { expiresIn, download })` | `Storage.url` | Signed and expiring unless the binding is public |
 | `getAvailableName(name)` | `get_available_name` | Used by `save` |
 
+Settings per provider are given per **connection** (`README.md`, Provider connections); secrets are write-only and audited.
+
 ## Providers
 | Module | When | Settings |
 | --- | --- | --- |
 | `storage-local` | Phase 1 | `root`; files served by the platform with signed tokens; included in backups |
-| `storage-s3` | When first needed | `bucket`, `endpoint`, `region`; keys are secrets. Works with AWS, R2, MinIO, B2 |
-| Others (GCS, Azure, SFTP) | On demand | Must pass the `storage` contract suite |
+| `storage-s3` | When first needed | `bucket`, `endpoint`, `region`; access keys are secrets. Works with AWS, R2, MinIO, B2 |
+| `storage-gcs` | On demand | `bucket`, `projectId`, `prefix`; service-account JSON as a secret file |
+| Others (Azure, SFTP) | On demand | Must pass the `storage` contract suite |
 
 ## Choosing providers (app manifest)
 ```yaml
 uses:
   storage:
     type: ^1
-    bindings: { default: storage-local, archive: storage-s3, public: { provider: storage-local, public: true } }
+    bindings:
+      default: storage-local
+      archive: { provider: storage-gcs, connection: gcs-archive }   # connection = bucket + service account, set by an admin
+      public:  { provider: storage-local, public: true }
 ```
 ```ts
 const files = ctx.use('storage')            // binding "default"
