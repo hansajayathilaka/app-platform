@@ -19,6 +19,9 @@ A module is a reusable capability that apps plug in when they need it (ADR 0024)
 | `contacts` | People and organisations shared by all apps | `contacts.md` |
 | `record-timeline` | Comments, attachments, change history on records | `record-timeline.md` |
 
+## Library modules
+A module can be just a library: `library: true` in `module.yaml`, no schema, no API, no `ctx`, no I/O. Apps and modules import it directly (`modules/money`, `modules/state-machine`). Use it to share code between apps instead of copying it.
+
 Candidates, built only when a real app needs them: notifications, email, files, connections (OAuth), outbound webhooks, search, documents.
 
 ## module.yaml
@@ -65,5 +68,5 @@ const contact = await ctx.module('contacts').get(contactId)
 - Migrations run once per deployment at deploy, in one transaction, after a schema dump (ADR 0023).
 
 ## Boundaries
-- The core never imports a module. Apps and modules import only a module's `contract` package; dependency-cruiser enforces it.
+- The core never imports a module. Apps and modules import only a module's `contract` package, or a library module whole; dependency-cruiser enforces it. Library modules import nothing but other library modules.
 - A module API is a platform contract: SemVer, and a breaking change is a new major version.

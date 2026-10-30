@@ -20,5 +20,5 @@ Every step is audited.
 
 ## Isolation
 - Data: schema per instance plus a DB role per instance (`instances.md`).
-- Code: an app imports only other apps' published contracts and modules' `contract` packages; dependency-cruiser enforces it.
+- Code: an app imports only other apps' published contracts, modules' `contract` packages and library modules; dependency-cruiser enforces it.
 - Runtime: per-instance concurrency limits and timeouts on jobs.

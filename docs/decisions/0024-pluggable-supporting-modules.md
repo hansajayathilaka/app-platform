@@ -26,6 +26,7 @@ Three kinds of package:
 - Boundaries (dependency-cruiser): the core never imports modules. Apps and modules import only a module's `contract` package. A module touches app data only through core ports (for example `RecordAccess` for read checks under record rules).
 - Module migrations run once per deployment at deploy, with the same transactional upgrade rule as instances (ADR 0023).
 - The core keeps reference data (countries, currencies, units, languages, timezones, currency rates) because the kernel's formatting uses it.
+- **Library modules:** a module may have no tables, no API and no `ctx`, and be only stateless code (money maths, a state machine, CSV parsing). Apps and modules import it directly. It is how code is shared between apps without copying; state still crosses apps only through contracts and module APIs.
 - First modules: `contacts` (from ADR 0021) and `record-timeline` (from ADR 0022). Others are built only when a real app needs them.
 
 ## Consequences
