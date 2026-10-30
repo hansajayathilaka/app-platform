@@ -16,7 +16,7 @@ read_when: Planning work or deciding what to build next.
 
 ## Later (agreed, not scheduled)
 - SDK and contract compatibility policy (`sdk:` range in the manifest, support window per SDK major).
-- Generic CSV/XLSX import and export from list views.
+- Import and export: not needed now (2026-10-30). Design from scratch later; the `CrudTable`-props approach was judged too narrow.
 
 ## Considered and declined (2026-10-29, Odoo comparison)
 - One generated entity model as the single source for every app artefact.
@@ -25,7 +25,7 @@ read_when: Planning work or deciding what to build next.
 - Code generators, a server-side CRUD kit and a required list API shape (2026-10-30); replaced by configurable CRUD UI components (ADR 0025).
 
 ## Under discussion (2026-10-30, one at a time)
-From the developer-speed review, still open: import/export timing, recording the SDK version on app versions.
+From the developer-speed review, still open: recording the SDK version on app versions.
 
 ## Open questions
 - Who approves studio apps before install: the requester or an admin?
