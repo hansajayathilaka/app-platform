@@ -19,7 +19,7 @@ Context is limited. Do not read `docs/` wholesale.
 - **Apps never touch each other's tables.** Read via exported views, write via exported commands, react via events. Everything through the SDK `ctx`.
 - **Every state change is authorised and audited in the same transaction** (`ctx.authorize`, `ctx.audit`).
 - **One deployment = one organisation.** No tenant ids. Isolation comes from app instances (one Postgres schema each) and instance-scoped permissions.
-- **UI is server-driven.** Pages are YAML specs validated by JSON Schema, compiled to JSON, rendered from the `@platform/ui` catalog. Do not hand-write app pages in React unless adding a catalog component.
+- **Pages are React built from `@platform/ui`.** Compose app pages from platform components and layouts (ADR 0028). Custom CSS or components only when no platform component fits. Some UI docs still describe YAML specs and are being updated.
 - **API contracts are `.proto` files** (Connect RPC). Change the contract first, then `buf generate`.
 - DRY, SOLID, small functions, constructor injection. No decorators or reflection-based DI.
 - Keep resource use low: the target is one 2 vCPU / 4 GB VPS.

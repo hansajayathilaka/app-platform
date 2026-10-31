@@ -1,6 +1,6 @@
 # ADR 0011: json-render as the web renderer
 
-- **Status:** Accepted
+- **Status:** Superseded by 0028
 - **Date:** 2026-10-29
 - **Deciders:** Hansa
 
