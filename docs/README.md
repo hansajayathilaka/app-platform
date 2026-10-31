@@ -5,7 +5,7 @@ Read only what your task needs. Each line: file, what it covers, when to read it
 ## Start here
 | File | Covers | Read when |
 | --- | --- | --- |
-| `product/overview.md` | What the platform is, goals, non-goals | New to the project |
+| `product/overview.md` | Main goal, objectives with measures, non-goals | New to the project, or judging any design choice |
 | `product/glossary.md` | App, instance, port, spec, catalog, principal... | A term is unclear |
 | `roadmap.md` | Phases, current phase, open questions | Planning or picking work |
 

@@ -13,8 +13,8 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0007 | Hexagonal architecture without a framework | Accepted |
 | 0008 | TypeScript on Node end to end | Accepted |
 | 0009 | Connect RPC for APIs | Accepted |
-| 0010 | Server-driven UI, YAML specs validated by JSON Schema | Accepted; amended by 0026 |
-| 0011 | json-render as the web renderer | Accepted |
+| 0010 | Server-driven UI, YAML specs validated by JSON Schema | Superseded by 0028 |
+| 0011 | json-render as the web renderer | Superseded by 0028 |
 | 0012 | Graphile Worker, checkpointed long jobs, no Temporal | Accepted |
 | 0013 | Studio apps: specs plus sandboxed code, human-approved | Accepted |
 | 0014 | Apps enabled at build time, empty install by default | Accepted |
@@ -31,5 +31,6 @@ Read the ADR before changing anything it covers. To change a decision, write a n
 | 0025 | Configurable CRUD UI components, no required API shape | Accepted |
 | 0026 | App-scoped UI components for hand-written apps | Accepted |
 | 0027 | File storage as the first module type (Django-style) | Accepted |
+| 0028 | App pages are React components, not YAML specs | Accepted |
 
 Template: `template.md`.
